@@ -32,10 +32,13 @@
         <section class="intro">
             <h2>Welcome to the Modern Website</h2>
             <p>This site is built with modern web development techniques using PHP and responsive design.</p>
-
+        </section>
+        
+        <section class="dynamic-content">
             <?php
-            // Displaying dynamic date and time
-            echo "<p>Current date and time: " . date('Y-m-d H:i:s') . "</p>";
+            // Display the current date and time in a more modern format
+            date_default_timezone_set('UTC'); // Set the timezone to UTC
+            echo "<p>Current Date and Time: " . date('l, F j, Y, g:i A') . "</p>";
             ?>
         </section>
     </main>
