@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A modern website using PHP as the homepage">
+    <meta name="description" content="A modern website using JavaScript for dynamic content">
     <title>Modern Home Page</title>
     
     <!-- Link to modern CSS reset -->
@@ -73,9 +73,9 @@
             <h1>My Modern Website</h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -84,16 +84,12 @@
     <!-- Main content -->
     <main class="container">
         <section class="intro">
-            <h2>Welcome to the Modern Website</h2>
-            <p>This site is built with modern web development techniques using PHP and responsive design.</p>
+            <h2>Silly Little Things</h2>
+            <p>This site is built with modern web development techniques using responsive design.</p>
         </section>
         
         <section class="dynamic-content">
-            <?php
-            // Display the current date and time in a more modern format
-            date_default_timezone_set('UTC'); // Set the timezone to UTC
-            echo "<p>Current Date and Time: " . date('l, F j, Y, g:i A') . "</p>";
-            ?>
+            <p id="current-date-time"></p>
         </section>
     </main>
 
@@ -103,6 +99,18 @@
             <p>&copy; 2024 My Modern Website. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript to display the current date and time -->
+    <script>
+        function displayDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            const formattedTime = now.toLocaleTimeString('en-US');
+            document.getElementById('current-date-time').innerHTML = `Current Date and Time: ${formattedDate} at ${formattedTime}`;
+        }
+        displayDateTime();
+    </script>
 
     <!-- Link to external JavaScript file -->
     <script src="js/script.js"></script>
