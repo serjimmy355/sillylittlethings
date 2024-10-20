@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A modern website using JavaScript for dynamic content">
-    <title>Modern Home Page</title>
+    <title>Home - Silly Little Things</title>
     
     <!-- Link to modern CSS reset -->
     <link rel="stylesheet" href="css/style.css">
@@ -19,6 +19,9 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             width: 100%;
@@ -26,7 +29,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        .main-header, .main-footer {
+        header, footer {
             background-color: #008080; /* Dark green */
             color: white;
             padding: 20px;
@@ -52,6 +55,9 @@
         }
         .main-nav ul li a:hover {
             text-decoration: underline;
+        }
+        .content {
+            flex: 1; /* Make the content area expand */
         }
         .intro h2 {
             font-size: 28px;
@@ -82,7 +88,7 @@
     </header>
 
     <!-- Main content -->
-    <main class="container">
+    <main class="container content">
         <section class="intro">
             <h2>Silly Little Things</h2>
             <p>This site is built with modern web development techniques using responsive design.</p>
@@ -96,7 +102,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2022    |    Silly Little Things    |    All Rights Reserved    </p>
+            <p>&copy; 2024 Silly Little Things | All Rights Reserved</p>
         </div>
     </footer>
 
