@@ -125,7 +125,6 @@
                 minute: '2-digit' 
             };
             const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('current-date-time').innerHTML = formattedDateTime;
         }
         displayDateTime(); // Display time once when the page loads
     </script>
