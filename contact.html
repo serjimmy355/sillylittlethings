@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Silly Little Things">
+    <title>Contact - Silly Little Things</title>
+    
+    <!-- Link to modern CSS reset -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header, footer {
+            background-color: #008080; /* Dark green */
+            color: white;
+            padding: 20px;
+        }
+        .main-header h1, .main-footer p {
+            margin: 0;
+            text-align: center;
+        }
+        .main-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            background-color: #006666;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: 2px solid transparent;
+        }
+        .main-nav ul li a:hover,
+        .main-nav ul li a:focus {
+            background-color: #004c4c;
+            border-color: #ffffff;
+            transform: scale(1.05);
+        }
+        .content {
+            flex: 1;
+            padding-top: 20px;
+        }
+        .contact-section {
+            text-align: center;
+        }
+        .contact-section h2 {
+            color: #008080;
+            font-size: 28px;
+        }
+        .contact-section p {
+            font-size: 16px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .contact-form button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #006666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <h1>Contact Silly Little Things</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container content">
+        <section class="contact-section">
+            <h2>Get in Touch</h2>
+            <p>
+                We'd love to hear from you! Whether you have questions, feedback, or just want to say hello,
+                feel free to reach out using the form below.
+            </p
