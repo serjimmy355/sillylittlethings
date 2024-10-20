@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Silly Little Things">
-    <title>Contact - Silly Little Things</title>
+    <meta name="description" content="Learn more about Silly Little Things">
+    <title>About - Silly Little Things</title>
     
     <!-- Link to modern CSS reset -->
     <link rel="stylesheet" href="css/style.css">
@@ -34,9 +34,13 @@
             color: white;
             padding: 20px;
         }
-        .main-header h1, .main-footer p {
-            margin: 0;
-            text-align: center;
+        .main-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-header h1 {
+            margin-bottom: 20px; /* Space between title and navigation */
         }
         .main-nav ul {
             list-style-type: none;
@@ -46,41 +50,31 @@
             justify-content: center;
             gap: 15px;
         }
+        .main-nav ul li {
+            margin: 0;
+        }
         .main-nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 600;
             padding: 10px 20px;
-            background-color: #006666;
+            background-color: #006666; /* Slightly darker than header background */
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s;
             border: 2px solid transparent;
         }
         .main-nav ul li a:hover,
         .main-nav ul li a:focus {
-            background-color: #004c4c;
-            border-color: #ffffff;
-            transform: scale(1.05);
+            background-color: #004c4c; /* Darker green on hover */
+            border-color: #ffffff; /* White border on hover */
+            transform: scale(1.05); /* Slight zoom effect */
         }
         .content {
             flex: 1;
-            padding-top: 20px;
+        }
+        .date-time {
             text-align: center;
-        }
-        .contact-section h2 {
-            color: #008080;
-            font-size: 28px;
-        }
-        .contact-section p {
-            font-size: 16px;
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        .contact-email {
-            font-size: 18px;
-            font-weight: bold;
-            color: #006666;
-            margin: 10px 0;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -88,7 +82,7 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <h1>Contact Silly Little Things</h1>
+            <h1>Silly Little Things</h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -101,12 +95,12 @@
 
     <!-- Main content -->
     <main class="container content">
-        <section class="contact-section">
-            <h2>Get in Touch</h2>
+        <section class="about-section">
+            <h2>About Us</h2>
             <p>
-                We’d love to hear from you! If you have any questions or comments, feel free to reach out via email.
+                Silly Little Things is a place where we celebrate the quirky, fun, and seemingly trivial things in life. 
+                From random thoughts to playful projects, we love embracing creativity in all its forms.
             </p>
-            <p class="contact-email">Email: <a href="mailto:webmail.names.co.uk">webmail.names.co.uk</a></p>
         </section>
     </main>
 
@@ -114,13 +108,12 @@
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2024    |    Silly Little Things    |    All Rights Reserved</p>
-        </div>
-        <div class="date-time">
-            <p id="current-date-time"></p>
+            <!-- Date and Time beneath the footer text -->
+            <p id="current-date-time" class="date-time"></p>
         </div>
     </footer>
 
-    <!-- JavaScript to display the current date and time -->
+    <!-- JavaScript to display the current date and time once -->
     <script>
         function displayDateTime() {
             const now = new Date();
@@ -130,14 +123,15 @@
                 month: 'long', 
                 day: 'numeric', 
                 hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit' 
+                minute: '2-digit' 
             };
-            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US');
+            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
             document.getElementById('current-date-time').innerHTML = formattedDateTime;
         }
-        displayDateTime();
-        setInterval(displayDateTime, 1000);
+        displayDateTime(); // Display time once when the page loads
     </script>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 </html>
