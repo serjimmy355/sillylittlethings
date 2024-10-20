@@ -1,10 +1,3 @@
-To fix the issue where the date and time are displayed twice, we need to remove the duplicate `toLocaleTimeString` call and ensure the format is correct. Additionally, I will move the date and time to the footer and position it in the bottom-left corner as requested.
-
-Here’s the updated `index.html`:
-
-### Updated `index.html` (with fixed date/time and repositioned to footer)
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +120,7 @@ Here’s the updated `index.html`:
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2024 Silly Little Things | All Rights Reserved</p>
+            <p>&copy; 2024    |    Silly Little Things    |    All Rights Reserved</p>
         </div>
         <!-- Date and Time in the bottom-left corner -->
         <div class="date-time">
@@ -159,11 +152,3 @@ Here’s the updated `index.html`:
     <script src="js/script.js"></script>
 </body>
 </html>
-```
-
-### Key Changes:
-1. **Date/Time Fix**: The `formattedDateTime` variable now correctly combines the date and time without duplicating the time. It concatenates `toLocaleDateString` and `toLocaleTimeString`.
-2. **Footer Positioning**: The date and time are now displayed in the footer, placed in the bottom-left corner using the `.date-time` class with `position: absolute; bottom: 20px; left: 20px;`.
-3. **Auto-Update**: The `setInterval(displayDateTime, 1000)` ensures the time is updated every second.
-
-Now the date and time will display correctly in the footer's bottom-left corner, and it will update dynamically.
