@@ -34,9 +34,13 @@
             color: white;
             padding: 20px;
         }
-        .main-header h1, .main-footer p {
-            margin: 0;
-            text-align: center;
+        .main-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-header h1 {
+            margin-bottom: 20px; /* Space between title and navigation */
         }
         .main-nav ul {
             list-style-type: none;
@@ -46,37 +50,31 @@
             justify-content: center;
             gap: 15px;
         }
+        .main-nav ul li {
+            margin: 0;
+        }
         .main-nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 600;
             padding: 10px 20px;
-            background-color: #006666;
+            background-color: #006666; /* Slightly darker than header background */
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s;
             border: 2px solid transparent;
         }
         .main-nav ul li a:hover,
         .main-nav ul li a:focus {
-            background-color: #004c4c;
-            border-color: #ffffff;
-            transform: scale(1.05);
+            background-color: #004c4c; /* Darker green on hover */
+            border-color: #ffffff; /* White border on hover */
+            transform: scale(1.05); /* Slight zoom effect */
         }
         .content {
             flex: 1;
-            padding-top: 20px;
         }
-        .about-section {
+        .date-time {
             text-align: center;
-        }
-        .about-section h2 {
-            color: #008080;
-            font-size: 28px;
-        }
-        .about-section p {
-            font-size: 16px;
-            margin: 20px auto;
-            max-width: 800px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -84,7 +82,7 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <h1>About Silly Little Things</h1>
+            <h1>Silly Little Things</h1>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -112,13 +110,12 @@
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2024    |    Silly Little Things    |    All Rights Reserved</p>
-        </div>
-        <div class="date-time">
-            <p id="current-date-time"></p>
+            <!-- Date and Time beneath the footer text -->
+            <p id="current-date-time" class="date-time"></p>
         </div>
     </footer>
 
-    <!-- JavaScript to display the current date and time -->
+    <!-- JavaScript to display the current date and time once -->
     <script>
         function displayDateTime() {
             const now = new Date();
@@ -128,14 +125,15 @@
                 month: 'long', 
                 day: 'numeric', 
                 hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit' 
+                minute: '2-digit' 
             };
-            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US');
+            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
             document.getElementById('current-date-time').innerHTML = formattedDateTime;
         }
-        displayDateTime();
-        setInterval(displayDateTime, 1000);
+        displayDateTime(); // Display time once when the page loads
     </script>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 </html>
