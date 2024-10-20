@@ -88,10 +88,8 @@
         }
         /* Style for the footer's date and time */
         .date-time {
-            text-align: left;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -114,7 +112,7 @@
     <main class="container content">
         <section class="intro">
             <h2>Silly Little Things</h2>
-            <p>Welcome to Silly Little Things! This ia a website for silly people to do silly things</p>
+            <p>This site is built with modern web development techniques using responsive design.</p>
         </section>
         
         <section class="dynamic-content">
@@ -126,14 +124,14 @@
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2024    |    Silly Little Things    |    All Rights Reserved</p>
-        </div>
-        <!-- Date and Time in the bottom-left corner -->
-        <div class="date-time">
-            <p id="current-date-time"></p>
+            <!-- Date and Time beneath the footer text -->
+            <div class="date-time">
+                <p id="current-date-time"></p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript to display the current date and time -->
+    <!-- JavaScript to display the current date and time once -->
     <script>
         function displayDateTime() {
             const now = new Date();
@@ -143,14 +141,12 @@
                 month: 'long', 
                 day: 'numeric', 
                 hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit' 
+                minute: '2-digit' 
             };
-            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US');
+            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
             document.getElementById('current-date-time').innerHTML = formattedDateTime;
         }
-        displayDateTime();
-        setInterval(displayDateTime, 1000);  // Update the time every second
+        displayDateTime(); // Display time once when the page loads
     </script>
 
     <!-- Link to external JavaScript file -->
