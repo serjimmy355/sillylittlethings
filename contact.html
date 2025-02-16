@@ -11,7 +11,9 @@
     
     <!-- Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -106,7 +108,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2024    |    Silly Little Things    |    All Rights Reserved</p>
+            <p>&copy; <span id="year"></span>    |    Silly Little Things    |    All Rights Reserved</p>
             <!-- Date and Time beneath the footer text -->
             <p id="current-date-time" class="date-time"></p>
         </div>
@@ -116,18 +118,24 @@
     <script>
         function displayDateTime() {
             const now = new Date();
-            const options = { 
+            const dateOptions = { 
                 weekday: 'long', 
                 year: 'numeric', 
                 month: 'long', 
-                day: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit' 
+                day: 'numeric' 
             };
-            const formattedDateTime = now.toLocaleDateString('en-US', options) + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            const timeOptions = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit'
+            };
+            const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById('current-date-time').innerHTML = `${formattedDate}, ${formattedTime}`;
         }
-        displayDateTime(); // Display time once when the page loads
+        displayDateTime(); // Display date and time once when the page loads
     </script>
+    
 
     <!-- Link to external JavaScript file -->
     <script src="js/script.js"></script>
