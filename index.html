@@ -110,6 +110,25 @@
             margin: 0;
             padding: 0;
         }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .video-container video {
+            width: 320px;
+            height: 240px;
+            flex: 1 1 auto;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+            }
+            .video-container video {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -137,22 +156,18 @@
                     <img src="https://sillylittlethings.co.uk/food/Brownies.png" alt="Link to Brownies Document" style="width: 150px; height: auto;">
                 </a>
             </p>
-            <p>
-                <video width="320" height="240" controls>
+            <div class="video-container">
+                <video controls>
                     <source src="https://sillylittlethings.co.uk/images/Jose%20Gonzales.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            </p>
-            <p>
-                <video width="320" height="240" controls>
+                <video controls>
                     <source src="https://sillylittlethings.co.uk/images/theory.mp4" type="video/mp4">
                 </video>
-            </p>
-            <p>
-                <video width="320" height="240" controls>
+                <video controls>
                     <source src="https://sillylittlethings.co.uk/images/yma6.mp4" type="video/mp4">
                 </video>
-            </p>
+            </div>
         </section>
         
         <section class="dynamic-content">
@@ -191,7 +206,6 @@
         displayDateTime(); // Display date and time once when the page loads
     </script>
     
-
     <!-- Link to external JavaScript file -->
     <script src="js/script.js"></script>
 </body>
