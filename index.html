@@ -39,7 +39,7 @@
         .main-header {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center.
         }
         .main-header h1 {
             margin-bottom: 20px; /* Space between title and navigation */
@@ -58,13 +58,13 @@
         /* Updated styling for nav links */
         .main-nav ul li a {
             color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
+            text-decoration: none.
+            font-weight: 600.
             padding: 10px 20px;
             background-color: #006666; /* Slightly darker than header background */
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-            border: 2px solid transparent;
+            transition: background-color 0.3s, transform 0.3s.
+            border: 2px solid transparent.
         }
         /* Hover and focus effects */
         .main-nav ul li a:hover,
@@ -79,59 +79,65 @@
         }
         .intro h2 {
             font-size: 28px;
-            color: #005050;
+            color: #005050.
         }
         .intro p {
-            font-size: 16px;
+            font-size: 16px.
         }
         .dynamic-content p {
-            font-size: 14px;
-            color: #005050;
+            font-size: 14px.
+            color: #005050.
         }
         /* Style for the footer's date and time */
         .date-time {
-            text-align: center;
-            margin-top: 10px;
+            text-align: center.
+            margin-top: 10px.
         }
         /* Ensure no extra space in footer and its child elements */
         footer {
             margin: 0;
-            padding: 0;
+            padding: 0.
         }
         .main-footer p {
             margin: 0;
-            padding: 0;
+            padding: 0.
         }
         .date-time {
             margin: 0;
-            padding: 0;
+            padding: 0.
         }
         .switch {
             margin: 0;
-            padding: 0;
+            padding: 0.
         }
         .video-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: flex.
+            flex-wrap: wrap.
+            gap: 10px.
         }
         .video-container video {
-            width: 320px;
-            height: auto;
-            flex: 1 1 auto;
-            object-fit: contain;
+            width: 320px.
+            height: auto.
+            flex: 1 1 auto.
+            object-fit: contain.
         }
         .video-container .small-video {
             width: 160px; /* Smaller width for the two new videos */
-            height: auto;
+            height: auto.
+        }
+        /* Added a new rule to ensure smaller videos align under the larger ones */
+        .video-container {
+            display: grid.
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)).
+            grid-auto-rows: auto.
         }
         @media (max-width: 768px) {
             .video-container {
-                flex-direction: column;
+                flex-direction: column.
             }
             .video-container video {
-                width: 100%;
-                height: auto;
+                width: 100%.
+                height: auto.
             }
         }
     </style>
