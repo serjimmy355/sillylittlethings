@@ -177,3 +177,47 @@
                 </video>
                 <video controls class="small-video">
                     <source src="https
+                    <source src="https://sillylittlethings.co.uk/images/9.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+        
+        <section class="dynamic-content">
+            <!-- Dynamic content can go here -->
+        </section>
+    </main>
+
+     <!-- Footer -->
+     <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span>    |    Silly Little Things    |    All Rights Reserved</p>
+            <!-- Date and Time beneath the footer text -->
+            <p id="current-date-time" class="date-time"></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to display the current date and time once -->
+    <script>
+        function displayDateTime() {
+            const now = new Date();
+            const dateOptions = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const timeOptions = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit'
+            };
+            const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById('current-date-time').innerHTML = `${formattedDate}, ${formattedTime}`;
+        }
+        displayDateTime(); // Display date and time once when the page loads
+    </script>
+    
+    <!-- Link to external JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
