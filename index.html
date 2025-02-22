@@ -121,6 +121,10 @@
             flex: 1 1 auto;
             object-fit: contain;
         }
+        .video-container .small-video {
+            width: 160px; /* Smaller width for the two new videos */
+            height: auto;
+        }
         @media (max-width: 768px) {
             .video-container {
                 flex-direction: column;
@@ -162,7 +166,6 @@
             <div class="video-container">
                 <video controls>
                     <source src="https://sillylittlethings.co.uk/images/Jose%20Gonzales.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video controls>
                     <source src="https://sillylittlethings.co.uk/images/theory.mp4" type="video/mp4">
@@ -170,10 +173,10 @@
                 <video controls>
                     <source src="https://sillylittlethings.co.uk/images/yma6.mp4" type="video/mp4">
                 </video>
-                <video controls>
+                <video controls class="small-video">
                     <source src="https://sillylittlethings.co.uk/images/2.mp4" type="video/mp4">
                 </video>
-                <video controls>
+                <video controls class="small-video">
                     <source src="https://sillylittlethings.co.uk/images/9.mp4" type="video/mp4">
                 </video>
             </div>
