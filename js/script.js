@@ -18,7 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("year").textContent = new Date().getFullYear();
 });
 
+// Function to update the time in the footer
+function updateFooterClock() {
+    const now = new Date();
+    const dateOptions = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const timeOptions = { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit'
+    };
+    const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+    const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+    document.getElementById('current-date-time').innerHTML = `${formattedDate}, ${formattedTime}`;
+}
+
+setInterval(updateFooterClock, 1000);
+updateFooterClock(); // Initial call to display clock immediately
