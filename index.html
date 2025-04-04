@@ -6,131 +6,13 @@
   <meta name="description" content="The Jim Ross">
   <title>The Jim Ross</title>
   
-  <!-- Link to modern CSS reset -->
+  <!-- External CSS file -->
   <link rel="stylesheet" href="css/style.css">
   
   <!-- Google Fonts for better typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  
-  <style>
-    /* Global Styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      /* Subtle light gradient background */
-      background: linear-gradient(135deg, #ffffff, #f4f4f4);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    /* Header & Footer with a vibrant gradient */
-    header, footer {
-      background: linear-gradient(135deg, #053957, #3d84ad);
-      color: #ffffff;
-      padding: 20px;
-    }
-    .main-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .main-header h1 {
-      margin-bottom: 20px;
-    }
-    
-    /* Navigation styling with subtle gradient on links */
-    .main-nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    .main-nav ul li {
-      margin: 0;
-    }
-    .main-nav ul li a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 10px 20px;
-      /* Use a matching gradient for the nav links */
-      background: linear-gradient(135deg, #053957, #3d84ad);
-      border-radius: 5px;
-      transition: background 0.3s, transform 0.3s;
-      border: 2px solid transparent;
-    }
-    .main-nav ul li a:hover,
-    .main-nav ul li a:focus {
-      background: linear-gradient(135deg, #021824, #0e3850);
-      border-color: #ffffff;
-      transform: scale(1.05);
-    }
-    
-    /* Content expands to fill space */
-    .content {
-      flex: 1;
-    }
-    .intro h2 {
-      font-size: 28px;
-      color: #005050;
-    }
-    .intro p {
-      font-size: 16px;
-    }
-    .dynamic-content p {
-      font-size: 14px;
-      color: #005050;
-    }
-    
-    /* Footer date and time styling */
-    .date-time {
-      text-align: center;
-      margin-top: 10px;
-    }
-    footer, .main-footer p, .date-time, .switch {
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Video container styles */
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .video-container video {
-      width: 320px;
-      height: auto;
-      flex: 1 1 auto;
-      object-fit: contain;
-    }
-    .video-container .small-video {
-      width: 160px;
-      height: auto;
-    }
-    @media (max-width: 768px) {
-      .video-container {
-        flex-direction: column;
-      }
-      .video-container video {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- Header -->
@@ -140,8 +22,6 @@
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -149,69 +29,37 @@
 
   <!-- Main content -->
   <main class="container content">
-    <section class="intro">
-      <h2>Delicious Brownies</h2>
-      <p>
-        <a href="https://sillylittlethings.co.uk/food/Brownies.pdf" target="_blank">
-          <img src="https://sillylittlethings.co.uk/food/Brownies.png" alt="Link to Brownies Document" style="width: 150px; height: auto;">
-        </a>
-      </p>
-      <div class="video-container">
-        <video controls>
-          <source src="https://sillylittlethings.co.uk/images/Jose%20Gonzales.mp4" type="video/mp4">
-        </video>
-        <video controls>
-          <source src="https://sillylittlethings.co.uk/images/theory.mp4" type="video/mp4">
-        </video>
-        <video controls>
-          <source src="https://sillylittlethings.co.uk/images/yma6.mp4" type="video/mp4">
-        </video>
-        <video controls class="small-video">
-          <source src="https://sillylittlethings.co.uk/images/2.mp4" type="video/mp4">
-        </video>
-        <video controls class="small-video">
-          <source src="https://sillylittlethings.co.uk/images/9.mp4" type="video/mp4">
-        </video>
-      </div>
+    <!-- API Section -->
+    <section class="api-section">
+      <!-- Advice Slip API in a dedicated standout box -->
+      <div id="advice-box" class="api-box advice-box"></div>
+      
+      <!-- Joke API (with two‑part check) placed before the cat image -->
+      <div id="joke-box-1" class="api-box joke-box"></div>
+      
+      <!-- Cat Image with a colorful border and fixed size -->
+      <div id="cat-box" class="api-box cat-box"></div>
+      
+      <!-- Dad Joke placed after the cat image -->
+      <div id="joke-box-2" class="api-box joke-box"></div>
     </section>
+
+   
     
     <section class="dynamic-content">
-      <!-- Dynamic content can go here -->
+      <!-- Other dynamic content can go here -->
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> | Silly Little Things | All Rights Reserved</p>
-      <!-- Date and Time beneath the footer text -->
+      <p>&copy; <span id="year"></span> | The Jim Ross | All Rights Reserved</p>
       <p id="current-date-time" class="date-time"></p>
     </div>
   </footer>
 
-  <!-- JavaScript to display the current date and time once -->
-  <script>
-    function displayDateTime() {
-      const now = new Date();
-      const dateOptions = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      };
-      const timeOptions = { 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit'
-      };
-      const formattedDate = now.toLocaleDateString('en-US', dateOptions);
-      const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
-      document.getElementById('current-date-time').innerHTML = `${formattedDate}, ${formattedTime}`;
-    }
-    displayDateTime();
-  </script>
-  
-  <!-- Link to external JavaScript file -->
+  <!-- External JavaScript file -->
   <script src="js/script.js"></script>
 </body>
 </html>
