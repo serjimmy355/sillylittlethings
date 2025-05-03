@@ -1,199 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Balloon Pop Reveal</title>
-  <!-- load two fancy script fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@700&display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
   <style>
-    html, body {
+    /* Basic resets */
+    * {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      width: 100vw; height: 100vh;
-      /* joyous sky gradient */
-      background: linear-gradient(180deg, #87CEEB 0%, #E0FFFF 100%);
-      display: flex; justify-content: center; align-items: center;
-      font-family: sans-serif;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-    /* drifting clouds */
-    .cloud {
-      position: absolute;
-      background: #FFF;
-      width: 200px; height: 60px;
-      border-radius: 50px;
-      filter: blur(8px);
-      opacity: 0.7;
-      animation: cloudMove linear infinite;
+    body, html {
+      height: 100%;
+      background: #f0f2f5;
     }
-    @keyframes cloudMove {
-      from { transform: translateX(-250px); }
-      to   { transform: translateX(110vw); }
+    /* Center container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
     }
-
-    /* BALLOON */
-    .balloon {
-      position: relative;
-      width: 140px; height: 180px;
-      background: #ff69b4;
-      border-radius: 60% 60% 50% 50%;
-      cursor: pointer;
-      transform-origin: bottom center;
-      /* floating animation */
-      animation: float 3s ease-in-out infinite;
+    /* Form styling */
+    #login-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 300px;
     }
-    .balloon:after {
-      content: '';
-      position: absolute;
-      bottom: -50px; left: 50%;
-      width: 4px; height: 50px;
-      background: #555;
-      transform: translateX(-50%);
-    }
-    /* fancy name */
-    .balloon span {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.4em;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    /* floating keyframes */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    /* pop keyframes */
-    @keyframes pop {
-      0%   { transform: scale(1); opacity: 1; }
-      50%  { transform: scale(1.4); opacity: 1; }
-      100% { transform: scale(0);   opacity: 0; }
-    }
-    .balloon.pop {
-      /* override float animation */
-      animation: pop 0.4s forwards;
-    }
-
-    /* CONFETTI */
-    .confetti {
-      position: absolute;
-      width: 8px; height: 16px;
-      opacity: 0;
-      will-change: transform, opacity;
-    }
-    @keyframes fly {
-      0%   { opacity: 1; transform: translate(0,0) rotate(0deg); }
-      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); }
-    }
-
-    /* CONGRATS MESSAGE */
-    #message, #from-message {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Dancing Script', cursive;
+    #login-form h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
       color: #333;
-      pointer-events: none;
-      opacity: 0;
-      white-space: nowrap;
     }
-    #message {
-      top: 45%;
-      font-size: 4em;
+    .input-group {
+      margin-bottom: 1rem;
     }
-    #from-message {
-      top: 60%;
-      font-size: 2em;
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #555;
     }
-    #message.show, #from-message.show {
-      transition: opacity 0.2s ease-out;
-      opacity: 1;
+    .input-group input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-
-    /* per-letter pop */
-    .letter {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(-30px) scale(0.5);
-      animation: letter-pop 0.6s ease-out forwards;
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
     }
-    @keyframes letter-pop {
-      0%   { opacity: 0; transform: translateY(-30px) scale(0.5); }
-      60%  { opacity: 1; transform: translateY(10px)  scale(1.2); }
-      100% { opacity: 1; transform: translateY(0)     scale(1); }
+    button:hover {
+      background-color: #45a049;
+    }
+    .register-link {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .register-link a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .register-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- clouds -->
-  <div class="cloud" style="top: 10%; animation-duration: 25s;"></div>
-  <div class="cloud" style="top: 25%; animation-duration: 30s;"></div>
-  <div class="cloud" style="top: 15%; animation-duration: 20s;"></div>
-
-  <div class="balloon" id="balloon">
-    <span>Amy &amp; Harry</span>
+  <div class="container">
+    <form id="login-form">
+      <h2>Login</h2>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="register-link">
+      <p>Don't have an account? <a href="registration.html">Register here</a></p>
+    </div>
   </div>
-  <div id="message">Congratulations!</div>
-  <div id="from-message">Love from Jim &amp; Lauren</div>
-
   <script>
-    const balloon       = document.getElementById('balloon');
-    const messageEl     = document.getElementById('message');
-    const fromEl        = document.getElementById('from-message');
-    const confettiCount = 40;
-    const colors        = ['#ff69b4','#ffc0cb','#1e90ff','#87cefa'];
+    // URL to redirect to after successful login
+    const redirectURL = 'home.html';
+    // Sounds to play
+    const successSound = new Audio('success.mp3');
+    const errorSound = new Audio('pop.mp3');
+    // Map to hold username=>passwordHash
+    let credentialsMap = {};
 
-    function random(min, max){ return Math.random()*(max-min)+min; }
-
-    function createSpans(text, baseDelay) {
-      return text.split('').map((ch, i) => {
-        const delay = (baseDelay + i*0.1).toFixed(2) + 's';
-        if (ch === ' ') return `<span class="letter" style="animation-delay:${delay}">&nbsp;</span>`;
-        return `<span class="letter" style="animation-delay:${delay}">${ch}</span>`;
-      }).join('');
+    // Utility: convert ArrayBuffer to hex string
+    function bufferToHex(buffer) {
+      const byteArray = new Uint8Array(buffer);
+      const hexCodes = [...byteArray].map(byte => byte.toString(16).padStart(2, '0'));
+      return hexCodes.join('');
     }
 
-    balloon.addEventListener('click', () => {
-      // 1) pop the balloon
-      balloon.classList.add('pop');
-      balloon.style.pointerEvents = 'none';
+    // Fetch and parse userdetails.txt (format: username:sha256hex) on load
+    fetch('userdetails.txt')
+      .then(response => response.text())
+      .then(text => {
+        text.split('\n').forEach(line => {
+          const [user, hash] = line.trim().split(':');
+          if (user && hash) credentialsMap[user] = hash;
+        });
+      })
+      .catch(err => console.error('Failed to load userdetails.txt:', err));
 
-      // hide floating clouds
-      document.querySelectorAll('.cloud').forEach(c => c.style.opacity = 0);
+    // Async handler for login
+    document.getElementById('login-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-      // 2) confetti
-      for (let i = 0; i < confettiCount; i++) {
-        const piece = document.createElement('div');
-        piece.className = 'confetti';
-        piece.style.background = colors[Math.floor(random(0, colors.length))];
-        piece.style.left = 'calc(50% - 4px)';
-        piece.style.top  = 'calc(50% - 8px)';
-        const angle    = random(0, 2 * Math.PI);
-        const dist     = random(100, 300);
-        piece.style.setProperty('--dx', Math.cos(angle)*dist + 'px');
-        piece.style.setProperty('--dy', Math.sin(angle)*dist + 'px');
-        piece.style.setProperty('--rot', random(180,720) + 'deg');
-        piece.style.animation = `fly ${random(0.8,1.5)}s ease-out ${random(0,0.2)}s forwards`;
-        document.body.appendChild(piece);
-        piece.addEventListener('animationend', () => piece.remove());
+      if (!(username in credentialsMap)) {
+        errorSound.play().catch(() => {});
+        return alert('Invalid username or password');
       }
 
-      // 3) animate congratulations message letters
-      messageEl.innerHTML = createSpans(messageEl.textContent.trim(), 0.3);
-      messageEl.classList.add('show');
+      // Hash entered password
+      const enc = new TextEncoder();
+      const hashBuffer = await crypto.subtle.digest('SHA-256', enc.encode(password));
+      const hashHex = bufferToHex(hashBuffer);
 
-      // 4) after 1 second, animate "Love from Jim & Lauren"
-      setTimeout(() => {
-        fromEl.innerHTML = createSpans(fromEl.textContent.trim(), 0.3);
-        fromEl.classList.add('show');
-      }, 1000);
+      if (hashHex === credentialsMap[username]) {
+        // Play success sound, then redirect after it finishes
+        successSound.play().catch(() => {});
+        successSound.addEventListener('ended', () => {
+          window.location.href = redirectURL;
+        });
+      } else {
+        errorSound.play().catch(() => {});
+        alert('Invalid username or password');
+      }
     });
   </script>
 </body>
